@@ -5,16 +5,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="patient1")
+@Table(name="patient")
 public class Patient {
-	public Patient(long patientId, String patientFirstName, String patientLastName, long phoneNumber, String disease) {
+
+	public Patient(long patientId, String patientFirstName, String patientLastName, long phoneNumber,
+			long emergencyNumber) {
 		super();
 		this.patientId = patientId;
 		this.patientFirstName = patientFirstName;
 		this.patientLastName = patientLastName;
 		this.phoneNumber = phoneNumber;
-		this.disease = disease;
+		this.emergencyNumber = emergencyNumber;
 	}
+	
 	public Patient() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -24,16 +27,12 @@ public class Patient {
 	private String patientFirstName;
 	private String patientLastName;
 	private long phoneNumber;
-	private String disease;
-	@Override
-	public String toString() {
-		return "Patient [patientId=" + patientId + ", patientFirstName=" + patientFirstName + ", patientLastName="
-				+ patientLastName + ", phoneNumber=" + phoneNumber + ", disease=" + disease + "]";
-	}
+	private long emergencyNumber;
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + (int) (emergencyNumber ^ (emergencyNumber >>> 32));
 		result = prime * result + ((patientFirstName == null) ? 0 : patientFirstName.hashCode());
 		result = prime * result + (int) (patientId ^ (patientId >>> 32));
 		result = prime * result + ((patientLastName == null) ? 0 : patientLastName.hashCode());
@@ -49,6 +48,8 @@ public class Patient {
 		if (getClass() != obj.getClass())
 			return false;
 		Patient other = (Patient) obj;
+		if (emergencyNumber != other.emergencyNumber)
+			return false;
 		if (patientFirstName == null) {
 			if (other.patientFirstName != null)
 				return false;
@@ -64,6 +65,11 @@ public class Patient {
 		if (phoneNumber != other.phoneNumber)
 			return false;
 		return true;
+	}
+	@Override
+	public String toString() {
+		return "Patient [patientId=" + patientId + ", patientFirstName=" + patientFirstName + ", patientLastName="
+				+ patientLastName + ", phoneNumber=" + phoneNumber + ", emergencyNumber=" + emergencyNumber + "]";
 	}
 	public long getPatientId() {
 		return patientId;
@@ -89,11 +95,13 @@ public class Patient {
 	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public String getDisease() {
-		return disease;
+	public long getEmergencyNumber() {
+		return emergencyNumber;
 	}
-	public void setDisease(String disease) {
-		this.disease = disease;
+	public void setEmergencyNumber(long emergencyNumber) {
+		this.emergencyNumber = emergencyNumber;
 	}
-
+	
+	
+	
 }
