@@ -1,8 +1,6 @@
 package com.htc.doctormanagement;
 
 import java.time.LocalDate;
-
-import org.jboss.jandex.Main;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
