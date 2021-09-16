@@ -9,6 +9,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -17,21 +19,25 @@ import javax.persistence.Table;
 public class Doctor implements Serializable {
 
 	
-	public Doctor(long doctorId, String doctorName, String specialization) {
+
+	public Doctor(long doctorId,String doctorName, String specialization, List<Appointment> appointment) {
 		super();
-		this.doctorId = doctorId;
+		this.doctorId=doctorId;
 		this.doctorName = doctorName;
 		this.specialization = specialization;
+		this.appointment = appointment;
 	}
 	public Doctor() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -4686260504604541074L;
 	@Id
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private long doctorId;
 	private String doctorName;
 	private String specialization;

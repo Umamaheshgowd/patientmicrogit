@@ -22,29 +22,40 @@ public class DoctorService {
 			@Autowired
 			private AppointmentInterface appointmentInterface;
 
+//			@Transactional
+//	public ResponseEntity<Object> createDoctordetails(Doctor doctor)
+//	{
+//		Doctor newDoctor = new Doctor();
+//		
+//		        newDoctor.setDoctorId(doctor.getDoctorId());
+//		
+//		        newDoctor.setDoctorName(doctor.getDoctorName());
+//		
+//		        newDoctor.setSpecialization(doctor.getSpecialization());
+////		        for(int i=0; i< doctor.getAppointment().size(); i++){
+////		        	Appointment appointment = appointmentInterface.save(doctor.getAppointment().get(i));
+////		        	            }
+//
+//		        newDoctor.setAppointment(doctor.getAppointment());
+//		
+//		        Doctor savedDoctor = doctorInterface.save(newDoctor);
+//				return ResponseEntity.accepted().body(savedDoctor);
+//		       
+//		
+//	}
+
 			@Transactional
-	public ResponseEntity<Object> createDoctordetails(Doctor doctor)
-	{
-		Doctor newDoctor = new Doctor();
-		
-		        newDoctor.setDoctorId(doctor.getDoctorId());
-		
-		        newDoctor.setDoctorName(doctor.getDoctorName());
-		
-		        newDoctor.setSpecialization(doctor.getSpecialization());
-//		        for(int i=0; i< doctor.getAppointment().size(); i++){
-//		        	Appointment appointment = appointmentInterface.save(doctor.getAppointment().get(i));
-//		        	            }
+			public Doctor insert(Doctor doctor) {
+				Doctor hospitalInput = new Doctor();
 
-		        newDoctor.setAppointment(doctor.getAppointment());
-		
-		        Doctor savedDoctor = doctorInterface.save(newDoctor);
-				return ResponseEntity.accepted().body(savedDoctor);
-		       
-		
-	}
+				hospitalInput.setDoctorId(doctor.getDoctorId());
+				hospitalInput.setDoctorName(doctor.getDoctorName());
+				hospitalInput.setDoctorName(doctor.getDoctorName());
+				hospitalInput.setAppointment(doctor.getAppointment());
 
-	
+				Doctor insertedInfo = doctorInterface.save(hospitalInput);
+				return insertedInfo;
+			}
 	
 	  public List<Doctor> getAllDoctordetails() {
 	   
