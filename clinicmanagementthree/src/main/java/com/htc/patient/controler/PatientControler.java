@@ -24,10 +24,9 @@ public class PatientControler {
 	private PatientInterface patientInterface;
 	
 	
-	@GetMapping("/patients/{patientId}") 
-	public Patient getPatientById(@RequestParam Long patientId) {
+	@GetMapping("/patients/M2/{patientId}") 
+	public Patient getPatientById(@PathVariable Long patientId) {
 		Patient patient =null;
-	
 		patient=patientInterface.findById(patientId).get();
 		return patient;
 		
@@ -43,19 +42,19 @@ public class PatientControler {
 	public List<Patient> getAllPatientss(){
 		return patientInterface.findAll();
 	}
-	 @GetMapping("/patients/{patientFirstName}")
+	 @GetMapping("/patients/FirstName/{patientFirstName}")
 		public Patient findByPatient_first_name(@RequestParam String patientFirstName) {
 
 			return patientInterface.findByPatientfirstname(patientFirstName);
 		}
 
-	 @GetMapping("/patients/{patientLastName}")
+	 @GetMapping("/patients/lastName/{patientLastName}")
 		public Patient findByPatient_last_name(@RequestParam String patientLastName) {
 
 			return patientInterface.findByPatientlastname(patientLastName);
 		}
 
-	 @GetMapping("/patients/{phoneNumber}")
+	 @GetMapping("/patients/phonenumber/{phoneNumber}")
 		public Patient findByPhone_numbwe(@RequestParam Long phoneNumber) {
 
 			return patientInterface.findByPhonenumber(phoneNumber);
@@ -70,7 +69,7 @@ public class PatientControler {
 	}
 
 
-	@DeleteMapping("/patients/{patientId}")
+	@DeleteMapping("/deletepatients/{patientId}")
 	  void deletePatient(@PathVariable Long patientId) {
 		patientInterface.deleteById(patientId);
 	  }
