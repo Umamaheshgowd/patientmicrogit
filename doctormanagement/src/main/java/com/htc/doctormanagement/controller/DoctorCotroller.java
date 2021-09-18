@@ -65,8 +65,8 @@ public class DoctorCotroller {
 		  }
 		 
 		
-		@GetMapping("/doctors/{doctorId}")
-		Doctor getDoctorbyId(@PathVariable Long doctorId)
+		@GetMapping("/doctors/getbyId/{doctorId}")
+		Doctor getDoctorbyId(@RequestParam Long doctorId)
 		{
 			Doctor doctor=null;
 			doctor=doctorInterface.findById(doctorId).get();

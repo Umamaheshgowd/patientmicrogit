@@ -20,12 +20,11 @@ public class Doctor implements Serializable {
 
 	
 
-	public Doctor(long doctorId,String doctorName, String specialization, List<Appointment> appointment) {
+	public Doctor(long doctorId,String doctorName, String specialization) {
 		super();
 		this.doctorId=doctorId;
 		this.doctorName = doctorName;
 		this.specialization = specialization;
-		this.appointment = appointment;
 	}
 	public Doctor() {
 		super();
@@ -41,9 +40,6 @@ public class Doctor implements Serializable {
 	private long doctorId;
 	private String doctorName;
 	private String specialization;
-	
-	@OneToMany(targetEntity = Appointment.class,cascade = CascadeType.ALL,orphanRemoval = true)
-	private List<Appointment> appointment;
 	
 	@Override
 	public int hashCode() {
@@ -101,16 +97,10 @@ public class Doctor implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	public List<Appointment> getAppointment() {
-		return appointment;
-	}
-	public void setAppointment(List<Appointment> appointment) {
-		this.appointment = appointment;
-	}
+	
 	@Override
 	public String toString() {
-		return "Doctor [doctorId=" + doctorId + ", doctorName=" + doctorName + ", specialization=" + specialization
-				+ ", appointment=" + appointment + "]";
+		return "Doctor [doctorId=" + doctorId + ", doctorName=" + doctorName + ", specialization=" + specialization + "]";
 	}
 	
 

@@ -19,8 +19,6 @@ import com.htc.doctormanagement.entity.Doctor;
 public class DoctorService {
 	        @Autowired
 			private DoctorInterface doctorInterface;
-			@Autowired
-			private AppointmentInterface appointmentInterface;
 
 //			@Transactional
 //	public ResponseEntity<Object> createDoctordetails(Doctor doctor)
@@ -51,7 +49,7 @@ public class DoctorService {
 				hospitalInput.setDoctorId(doctor.getDoctorId());
 				hospitalInput.setDoctorName(doctor.getDoctorName());
 				hospitalInput.setDoctorName(doctor.getDoctorName());
-				hospitalInput.setAppointment(doctor.getAppointment());
+				//hospitalInput.setAppointment(doctor.getAppointment());
 
 				Doctor insertedInfo = doctorInterface.save(hospitalInput);
 				return insertedInfo;

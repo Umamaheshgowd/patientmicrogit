@@ -22,13 +22,13 @@ class DoctormanagementApplicationTests {
 	@Test
 	public  void testAppointment() {
 		Appointment appointment = new Appointment();
-		appointment.setAppointmentId(1L);
+		appointment.setAppointmentId(101L);
 		appointment.setAppointmentDate(LocalDate.now());
-		appointment.setDoctorId(2L);
+		appointment.setDoctorId(001L);
 		
 		appointmentInterface.save(appointment);
 		
-		assertNotNull(appointmentInterface.findById(1L).get());
+		assertNotNull(appointmentInterface.findById(101L).get());
 	}
 
 
